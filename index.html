@@ -4,387 +4,199 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bindu Kalam — Portfolio</title>
+<meta name="description" content="Software Engineer building scalable, cloud-native and GenAI-powered systems in Java, Spring Boot, Kafka and AWS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#0a0a0f;
-  --surface:#13131a;
-  --surface2:#1c1c26;
-  --border:#2a2a38;
-  --accent:#7c6ff7;
-  --accent2:#5dcaa5;
-  --text:#e8e8f0;
-  --muted:#8888a0;
-  --tag-bg:#1e1e2e;
-}
+:root{--bg:#0a0a0f;--surface:#13131a;--border:#2a2a38;--accent:#7c6ff7;--accent2:#5dcaa5;--text:#e8e8f0;--muted:#8888a0;--tag-bg:#1e1e2e}
+html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
 .nav-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:56px}
-.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;letter-spacing:-0.3px;color:var(--text)}
-.nav-links{display:flex;gap:2rem}
-.nav-links a{font-size:13px;color:var(--muted);letter-spacing:0.3px;transition:color 0.2s}
-.nav-links a:hover{color:var(--text);text-decoration:none}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px}
+.nav-links{display:flex;gap:1.6rem;flex-wrap:wrap}
+.nav-links a{font-size:13px;color:var(--muted)}.nav-links a:hover{color:var(--text);text-decoration:none}
 .container{max-width:900px;margin:0 auto;padding:0 2rem}
 .hero{padding:6rem 2rem 4rem;max-width:900px;margin:0 auto}
-.hero-eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:1.5rem;font-weight:500}
+.eyebrow,.section-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);font-weight:500}
+.eyebrow{margin-bottom:1.5rem}
 .hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,6vw,3.8rem);font-weight:700;line-height:1.1;letter-spacing:-1.5px;color:#fff;margin-bottom:1rem}
 .hero-name span{color:var(--accent)}
-.hero-title{font-size:1.1rem;color:var(--muted);margin-bottom:2rem;font-weight:400;max-width:520px;line-height:1.6}
+.hero-title{font-size:1.1rem;color:var(--muted);margin-bottom:2rem;max-width:560px}
 .hero-stats{display:flex;gap:2.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
 .stat{display:flex;flex-direction:column}
 .stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--accent);line-height:1}
-.stat-label{font-size:11px;color:var(--muted);letter-spacing:0.5px;margin-top:3px}
+.stat-label{font-size:11px;color:var(--muted);margin-top:3px}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn-primary{background:var(--accent);color:#fff;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:500;border:none;cursor:pointer;transition:opacity 0.2s;display:inline-block}
-.btn-primary:hover{opacity:0.85;text-decoration:none;color:#fff}
-.btn-outline{background:transparent;color:var(--text);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:500;border:1px solid var(--border);cursor:pointer;transition:border-color 0.2s;display:inline-block}
-.btn-outline:hover{border-color:var(--accent);text-decoration:none;color:var(--text)}
+.btn-primary,.btn-outline{padding:10px 22px;border-radius:8px;font-size:13px;font-weight:500;display:inline-block}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{opacity:.85;text-decoration:none;color:#fff}
+.btn-outline{border:1px solid var(--border);color:var(--text)}.btn-outline:hover{border-color:var(--accent);text-decoration:none;color:var(--text)}
 section{padding:4rem 0;border-top:1px solid var(--border)}
-.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:0.75rem;font-weight:500}
-.section-title{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:600;color:#fff;margin-bottom:2.5rem;letter-spacing:-0.5px}
+.section-label{font-size:11px;margin-bottom:.75rem}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:600;color:#fff;margin-bottom:2.5rem;letter-spacing:-.5px}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.about-text{font-size:15px;color:var(--muted);line-height:1.8}
-.about-text p{margin-bottom:1rem}
-.about-text strong{color:var(--text);font-weight:500}
+.about-text{color:var(--muted);line-height:1.8}.about-text p{margin-bottom:1rem}.about-text strong{color:var(--text);font-weight:500}
 .about-highlights{display:flex;flex-direction:column;gap:12px}
-.highlight-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem}
-.highlight-card .h-label{font-size:11px;color:var(--muted);letter-spacing:0.5px;margin-bottom:4px;text-transform:uppercase}
-.highlight-card .h-val{font-size:14px;color:var(--text);font-weight:500}
+.card,.highlight-card,.skill-group,.project-card,.contact-item,.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:10px}
+.highlight-card{padding:1rem 1.25rem}
+.h-label,.contact-label{font-size:11px;color:var(--muted);letter-spacing:.5px;margin-bottom:4px;text-transform:uppercase}
+.h-val,.contact-val{font-size:14px;color:var(--text);font-weight:500}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-.skill-group{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
-.skill-group-title{font-size:12px;letter-spacing:0.5px;text-transform:uppercase;color:var(--accent2);margin-bottom:12px;font-weight:500}
-.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{background:var(--tag-bg);border:1px solid var(--border);color:var(--muted);font-size:11px;padding:3px 10px;border-radius:20px;letter-spacing:0.2px}
+.skill-group{padding:1.25rem}
+.skill-group-title{font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--accent2);margin-bottom:12px;font-weight:500}
+.skill-tags,.project-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{background:var(--tag-bg);border:1px solid var(--border);color:var(--muted);font-size:11px;padding:3px 10px;border-radius:20px}
 .exp-item{display:grid;grid-template-columns:140px 1fr;gap:2rem;margin-bottom:2.5rem}
 .exp-item:not(:last-child){padding-bottom:2.5rem;border-bottom:1px solid var(--border)}
-.exp-date{font-size:12px;color:var(--muted);padding-top:2px;line-height:1.5}
+.exp-date{font-size:12px;color:var(--muted);padding-top:2px}
 .exp-company{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;color:#fff;margin-bottom:2px}
 .exp-role{font-size:13px;color:var(--accent);margin-bottom:10px;font-weight:500}
-.exp-bullets{list-style:none;padding:0}
-.exp-bullets li{font-size:13px;color:var(--muted);margin-bottom:6px;padding-left:16px;position:relative;line-height:1.6}
+.exp-bullets{list-style:none}
+.exp-bullets li{font-size:13px;color:var(--muted);margin-bottom:6px;padding-left:16px;position:relative}
 .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent2);font-size:11px;top:2px}
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color 0.2s;display:flex;flex-direction:column}
+.project-card{border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;transition:border-color .2s}
 .project-card:hover{border-color:var(--accent)}
-.project-badge{font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:14px;display:inline-block;font-weight:500}
+.project-badge{font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:14px;display:inline-block;font-weight:500;align-self:flex-start}
 .badge-work{background:#1a1a30;color:var(--accent);border:1px solid #3a3a60}
 .badge-academic{background:#0f2a20;color:var(--accent2);border:1px solid #1a4a38}
-.project-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;color:#fff;margin-bottom:8px;letter-spacing:-0.2px}
+.project-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;color:#fff;margin-bottom:8px}
 .project-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:16px;flex:1}
-.project-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
-.project-link{font-size:12px;color:var(--accent);font-weight:500}
-.project-link:hover{opacity:0.8;text-decoration:none}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.contact-item{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
-.contact-icon{font-size:1.2rem}
-.contact-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px}
-.contact-val{font-size:14px;color:var(--text);font-weight:500}
-.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:1rem}
-.edu-degree{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;color:#fff;margin-bottom:4px}
+.project-tags{margin-bottom:16px}
+.project-link{font-size:12px;font-weight:500}
+.edu-card{padding:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.edu-degree{font-family:'Space Grotesk',sans-serif;font-weight:600;color:#fff;margin-bottom:4px}
 .edu-school{font-size:14px;color:var(--accent2)}
-.edu-courses{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.6;max-width:500px}
-.edu-year{font-size:12px;color:var(--muted);white-space:nowrap}
+.edu-year{font-size:12px;color:var(--muted)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact-item{display:flex;align-items:center;gap:14px;padding:1.25rem}
+.contact-icon{font-size:1.2rem}
 footer{text-align:center;padding:2.5rem;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}
-@media(max-width:640px){
-  .about-grid{grid-template-columns:1fr}
-  .exp-item{grid-template-columns:1fr}
-  .exp-date{margin-bottom:-1rem}
-  .contact-grid{grid-template-columns:1fr}
-}
+@media(max-width:640px){.about-grid,.contact-grid{grid-template-columns:1fr}.exp-item{grid-template-columns:1fr;gap:.5rem}}
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <span class="nav-logo">BK</span>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
+<nav><div class="nav-inner"><span class="nav-logo">BK</span>
+<div class="nav-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></div></nav>
 
 <div class="hero">
-  <div class="hero-eyebrow">Full Stack Java Developer</div>
-  <h1 class="hero-name">Bindu<br><span>Kalam</span></h1>
-  <p class="hero-title">Building systems that process millions of records daily — from React dashboards to Kafka pipelines. 5+ years at Fiserv and CVS Health.</p>
-  <div class="hero-stats">
-    <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years experience</span></div>
-    <div class="stat"><span class="stat-num">40%</span><span class="stat-label">API latency cut</span></div>
-    <div class="stat"><span class="stat-num">50K+</span><span class="stat-label">Daily claims handled</span></div>
-    <div class="stat"><span class="stat-num">1M+</span><span class="stat-label">Transactions/day</span></div>
-  </div>
-  <div class="hero-cta">
-    <a class="btn-primary" href="#projects">View Projects</a>
-    <a class="btn-outline" href="#contact">Get in Touch</a>
-  </div>
+<div class="eyebrow">Software Engineer · Cloud-Native &amp; GenAI Systems</div>
+<h1 class="hero-name">Bindu<br><span>Kalam</span></h1>
+<p class="hero-title">Building scalable, AI-powered financial and healthcare systems, from Kafka event pipelines to LLM-powered features. 4+ years across Fiserv, CVS Health and Cognizant.</p>
+<div class="hero-stats">
+<div class="stat"><span class="stat-num">90K+</span><span class="stat-label">Events/min processed</span></div>
+<div class="stat"><span class="stat-num">35%</span><span class="stat-label">Fewer support queries</span></div>
+<div class="stat"><span class="stat-num">40%</span><span class="stat-label">Less manual bookkeeping</span></div>
+<div class="stat"><span class="stat-num">50K+</span><span class="stat-label">Daily claims handled</span></div>
+</div>
+<div class="hero-cta"><a class="btn-primary" href="#projects">View Projects</a><a class="btn-outline" href="#contact">Get in Touch</a></div>
 </div>
 
-<section id="about">
-  <div class="container">
-    <div class="section-label">About</div>
-    <div class="section-title">Who I am</div>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>Full-stack Java engineer who owns both ends of the stack — from the <strong>React dashboard</strong> ops teams use daily, to the <strong>Kafka pipeline</strong> moving millions of transactions underneath it.</p>
-        <p>Over 5 years at <strong>Fiserv</strong> and <strong>CVS Health</strong>, I've built systems that process millions of records daily, cut API latency by 40%, and handle HIPAA-regulated PHI without incident.</p>
-        <p>I work best when the problem is complex, the stakes are real, and the team needs someone who can move fast without dropping the ball.</p>
-      </div>
-      <div class="about-highlights">
-        <div class="highlight-card">
-          <div class="h-label">Current role</div>
-          <div class="h-val">Full Stack Java Developer @ Fiserv</div>
-        </div>
-        <div class="highlight-card">
-          <div class="h-label">Education</div>
-          <div class="h-val">M.S. Computational Science — University at Buffalo</div>
-        </div>
-        <div class="highlight-card">
-          <div class="h-label">Location</div>
-          <div class="h-val">USA</div>
-        </div>
-        <div class="highlight-card">
-          <div class="h-label">Certifications</div>
-          <div class="h-val">Claude Code in Action – Anthropic · Google AI Professional (in progress)</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="container">
-    <div class="section-label">Skills</div>
-    <div class="section-title">Technical stack</div>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <div class="skill-group-title">Languages</div>
-        <div class="skill-tags">
-          <span class="tag">Java 8/11/17</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Scala</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Frontend</div>
-        <div class="skill-tags">
-          <span class="tag">React.js</span><span class="tag">Angular</span><span class="tag">REST APIs</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Backend</div>
-        <div class="skill-tags">
-          <span class="tag">Spring Boot</span><span class="tag">Spring Security</span><span class="tag">Hibernate</span><span class="tag">JPA</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">AI / ML</div>
-        <div class="skill-tags">
-          <span class="tag">Agentic Workflows</span><span class="tag">PySpark ML</span><span class="tag">Fraud Detection</span><span class="tag">Predictive Analytics</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Cloud & DevOps</div>
-        <div class="skill-tags">
-          <span class="tag">AWS EKS/ECS</span><span class="tag">GCP</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Databases & Messaging</div>
-        <div class="skill-tags">
-          <span class="tag">Kafka</span><span class="tag">Oracle</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">MySQL</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="container">
-    <div class="section-label">Experience</div>
-    <div class="section-title">Where I've worked</div>
-
-    <div class="exp-item">
-      <div class="exp-date">Sep 2024 – Present</div>
-      <div>
-        <div class="exp-company">Fiserv</div>
-        <div class="exp-role">Full Stack Java Developer</div>
-        <ul class="exp-bullets">
-          <li>Architected event-driven microservices in Java 17 + Spring Boot for real-time card authorization at millions of transactions/day</li>
-          <li>Owned full-stack delivery of a React.js operations dashboard with Spring Boot REST APIs for live transaction monitoring</li>
-          <li>Cut API response latency ~40% via Redis distributed caching and Kafka-based event streaming pipelines</li>
-          <li>Reduced false-positive fraud alerts with AI-powered Python rule engines and anomaly detection models</li>
-          <li>Built Kafka to Spark streaming pipelines feeding BigQuery on GCP Dataproc for fraud pattern analysis</li>
-          <li>Reduced mean time to detect production incidents by 50% using Splunk dashboards and distributed tracing</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-date">May 2023 – Aug 2024</div>
-      <div>
-        <div class="exp-company">CVS Health</div>
-        <div class="exp-role">Full Stack Java Developer</div>
-        <ul class="exp-bullets">
-          <li>Built end-to-end claims processing for CVS Caremark's adjudication platform handling 50,000+ daily claims</li>
-          <li>Engineered Kafka-based event-driven pipelines eliminating synchronous bottlenecks across distributed claims workflows</li>
-          <li>Implemented HIPAA-compliant PHI data access with Spring Security and OAuth2 with zero compliance incidents</li>
-          <li>Reduced downstream service failures ~25% via retry and fault-tolerance patterns and optimized SQL Server and MongoDB queries</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-date">Jan 2021 – Jul 2022</div>
-      <div>
-        <div class="exp-company">Cognizant India</div>
-        <div class="exp-role">Software Developer</div>
-        <ul class="exp-bullets">
-          <li>Built Java Spring Boot microservices for a retail client's inventory and sales management platform</li>
-          <li>Improved inventory sync throughput 30% via event-driven communication and multithreading patterns</li>
-          <li>Implemented Kafka consumers processing 100,000+ daily event messages for real-time inventory analytics</li>
-          <li>Increased automated test coverage from 55% to 82% using JUnit, Mockito, and Selenium</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="exp-item">
-  <div class="exp-date">May 2017 – Dec 2020</div>
-  <div>
-    <div class="exp-company">Dvara Solutions</div>
-    <div class="exp-role">Java Developer — India</div>
-    <ul class="exp-bullets">
-      <li>Built and maintained Java-based enterprise applications using Core Java, OOP principles, and design patterns across real-world business projects</li>
-      <li>Developed RESTful APIs and supported frontend-backend integration for seamless communication across distributed systems</li>
-      <li>Wrote and optimized SQL queries for relational databases, improving backend performance and data reliability</li>
-      <li>Implemented unit tests and contributed to code quality improvements across the team using structured testing practices</li>
-      <li>Collaborated using Git for version control and participated in full Agile/Scrum ceremonies — standups, sprint planning, and retrospectives</li>
-    </ul>
-  </div>
+<section id="about"><div class="container">
+<div class="section-label">About</div><div class="section-title">Who I am</div>
+<div class="about-grid">
+<div class="about-text">
+<p>Software engineer who owns systems end to end, from <strong>Java 17 / Spring Boot microservices</strong> and <strong>Kafka event pipelines</strong> to the <strong>React dashboards</strong> users see.</p>
+<p>At <strong>Fiserv</strong> I build <strong>LLM-powered features, RAG pipelines and agentic workflows</strong> on Azure OpenAI and LangChain, on top of services processing 90K+ events per minute. Before that I built HIPAA-compliant claims systems at <strong>CVS Health</strong> and payment platforms at <strong>Cognizant</strong>.</p>
+<p>I like complex problems with real stakes, and I mentor engineers and lead design reviews along the way.</p>
 </div>
-</section>
+<div class="about-highlights">
+<div class="highlight-card"><div class="h-label">Current role</div><div class="h-val">Software Engineer @ Fiserv</div></div>
+<div class="highlight-card"><div class="h-label">Education</div><div class="h-val">M.S. Data Science &amp; Engineering — University at Buffalo, SUNY</div></div>
+<div class="highlight-card"><div class="h-label">Location</div><div class="h-val">USA</div></div>
+<div class="highlight-card"><div class="h-label">Certifications</div><div class="h-val">Claude Code in Action – Anthropic · Google AI Professional (in progress)</div></div>
+</div></div></div></section>
 
-<section id="projects">
-  <div class="container">
-    <div class="section-label">Projects</div>
-    <div class="section-title">Featured work</div>
-    <div class="projects-grid">
+<section id="skills"><div class="container">
+<div class="section-label">Skills</div><div class="section-title">Technical stack</div>
+<div class="skills-grid">
+<div class="skill-group"><div class="skill-group-title">Languages</div><div class="skill-tags"><span class="tag">Java 8/11/17</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span></div></div>
+<div class="skill-group"><div class="skill-group-title">Frontend</div><div class="skill-tags"><span class="tag">React.js</span><span class="tag">Angular</span><span class="tag">Redux</span><span class="tag">HTML5/CSS3</span></div></div>
+<div class="skill-group"><div class="skill-group-title">Backend</div><div class="skill-tags"><span class="tag">Spring Boot</span><span class="tag">Spring Security</span><span class="tag">Node.js</span><span class="tag">REST</span><span class="tag">GraphQL</span><span class="tag">Microservices</span></div></div>
+<div class="skill-group"><div class="skill-group-title">AI / GenAI</div><div class="skill-tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Agentic Workflows</span><span class="tag">Azure OpenAI</span><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">Pinecone</span></div></div>
+<div class="skill-group"><div class="skill-group-title">Cloud &amp; DevOps</div><div class="skill-tags"><span class="tag">AWS (EKS, Lambda, S3)</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span></div></div>
+<div class="skill-group"><div class="skill-group-title">Data &amp; Messaging</div><div class="skill-tags"><span class="tag">Kafka</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span></div></div>
+<div class="skill-group"><div class="skill-group-title">Testing &amp; Observability</div><div class="skill-tags"><span class="tag">JUnit</span><span class="tag">Cucumber</span><span class="tag">Cypress</span><span class="tag">CloudWatch</span><span class="tag">Datadog APM</span></div></div>
+</div></div></section>
 
-      <div class="project-card">
-        <span class="project-badge badge-work">Case Study</span>
-        <div class="project-title">Fiserv Fraud Pipeline</div>
-        <div class="project-desc">Real-time fraud decisioning architecture using Kafka, OpenAI embeddings, and vector similarity search — achieving 40% latency reduction.</div>
-        <div class="project-tags">
-          <span class="tag">Kafka</span><span class="tag">OpenAI</span><span class="tag">Java</span><span class="tag">GCP</span>
-        </div>
-        <a class="project-link" href="https://github.com/bindukalam/fiserv-fraud-pipeline-case-study" target="_blank">View on GitHub ↗</a>
-      </div>
+<section id="experience"><div class="container">
+<div class="section-label">Experience</div><div class="section-title">Where I've worked</div>
 
-      <div class="project-card">
-        <span class="project-badge badge-work">Case Study</span>
-        <div class="project-title">CVS Claims Platform</div>
-        <div class="project-desc">HIPAA-compliant claims processing with event-driven microservices, PHI-secure data layers, and support for 50K+ daily claims.</div>
-        <div class="project-tags">
-          <span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">Kafka</span><span class="tag">AWS</span>
-        </div>
-        <a class="project-link" href="https://github.com/bindukalam/cvs-claims-platform-case-study" target="_blank">View on GitHub ↗</a>
-      </div>
+<div class="exp-item"><div class="exp-date">Jan 2025 – Present</div><div>
+<div class="exp-company">Fiserv</div><div class="exp-role">Software Engineer</div>
+<ul class="exp-bullets">
+<li>Architected and own distributed financial services (Java 17, Spring Boot, AWS) processing 90K+ events/min for millions of SMB users</li>
+<li>Built LLM-powered financial assistance with Azure OpenAI and LangChain, reducing support queries by 35% within 2 quarters</li>
+<li>Developed RAG pipelines (FAISS/Pinecone) for invoices, receipts and tax records; built agentic workflows that cut manual bookkeeping time by 40%</li>
+<li>Designed REST and GraphQL APIs that improved partner integration efficiency by 30% across 10+ internal services</li>
+<li>Cut API latency from 420ms to 240ms with PostgreSQL tuning and Redis caching</li>
+<li>Reduced deployment failures 45% with Docker, EKS and Terraform; moved releases from bi-weekly to weekly with CI/CD</li>
+<li>Led design reviews and mentored engineers on GenAI best practices, including prompt engineering and RAG architecture</li>
+</ul></div></div>
 
-      <div class="project-card">
-        <span class="project-badge badge-academic">Academic</span>
-        <div class="project-title">Chicago Crime Analytics</div>
-        <div class="project-desc">Analyzed 1M+ crime records (2012–2016) with Spark/PySpark on GCP Dataproc. Applied ML classification to predict crime categories and high-risk zones.</div>
-        <div class="project-tags">
-          <span class="tag">PySpark</span><span class="tag">GCP</span><span class="tag">Scala</span><span class="tag">ML</span>
-        </div>
-        <a class="project-link" href="https://github.com/bindukalam/chicago-crime-analytics" target="_blank">View on GitHub ↗</a>
-      </div>
+<div class="exp-item"><div class="exp-date">May 2024 – Dec 2024</div><div>
+<div class="exp-company">CVS Health</div><div class="exp-role">Software Developer</div>
+<ul class="exp-bullets">
+<li>Built Spring Boot microservices and Angular/TypeScript UIs for claims submission, status tracking and adjudication on a platform handling 50,000+ daily claims</li>
+<li>Engineered Kafka event-driven pipelines to replace synchronous calls, improving throughput and service decoupling</li>
+<li>Developed FHIR-compliant REST APIs (Patient, Claim, Coverage, Encounter) for secure healthcare interoperability</li>
+<li>Implemented Spring Security and OAuth2 within HIPAA-compliant data access layers to protect PHI</li>
+<li>Reduced downstream service failures ~25% with retry and fault-tolerance patterns and SQL Server/MongoDB optimization</li>
+</ul></div></div>
 
-      <div class="project-card">
-        <span class="project-badge badge-academic">Academic</span>
-        <div class="project-title">Employee Churn Analysis</div>
-        <div class="project-desc">Predicted employee attrition on 14,999 HR records using Decision Tree (95.64% accuracy), AdaBoost, and Boruta feature selection.</div>
-        <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Boruta</span><span class="tag">Seaborn</span>
-        </div>
-        <a class="project-link" href="https://github.com/bindukalam/employee-churn-analysis" target="_blank">View on GitHub ↗</a>
-      </div>
+<div class="exp-item"><div class="exp-date">Jan 2021 – Aug 2022</div><div>
+<div class="exp-company">Cognizant</div><div class="exp-role">Software Engineer — India</div>
+<ul class="exp-bullets">
+<li>Built Java, Spring Boot and MySQL services for wallet, payments and merchant platforms serving millions of daily users</li>
+<li>Reduced transaction latency 20% through SQL and indexing optimization; cut API response time 18% with Redis caching</li>
+<li>Integrated Kafka for asynchronous payment processing and helped migrate legacy modules to microservices</li>
+<li>Automated builds and deployments with Jenkins and Git; wrote JUnit unit and integration tests with QA</li>
+</ul></div></div>
+</div></section>
 
-      <div class="project-card">
-        <span class="project-badge badge-academic">Academic</span>
-        <div class="project-title">Retail Demand Forecasting</div>
-        <div class="project-desc">End-to-end ML pipeline for demand forecasting and inventory optimization using time-series and regression models on GCP Dataproc.</div>
-        <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">GCP</span><span class="tag">Plotly</span>
-        </div>
-        <a class="project-link" href="https://github.com/bindukalam/retail-demand-forecasting" target="_blank">View on GitHub ↗</a>
-      </div>
+<section id="projects"><div class="container">
+<div class="section-label">Projects</div><div class="section-title">Featured work</div>
+<div class="projects-grid">
+<div class="project-card"><span class="project-badge badge-work">Case Study</span>
+<div class="project-title">Fiserv Financial Platform</div>
+<div class="project-desc">Event-driven accounting services at 90K+ events/min, plus LLM, RAG and agentic features that cut support queries by 35% and manual bookkeeping by 40%.</div>
+<div class="project-tags"><span class="tag">Java 17</span><span class="tag">Kafka</span><span class="tag">Azure OpenAI</span><span class="tag">AWS</span></div>
+<a class="project-link" href="https://github.com/bindukalam/fiserv-fraud-pipeline-case-study" target="_blank" rel="noopener">View on GitHub ↗</a></div>
 
-    </div>
-  </div>
-</section>
+<div class="project-card"><span class="project-badge badge-work">Case Study</span>
+<div class="project-title">CVS Claims Platform</div>
+<div class="project-desc">HIPAA-compliant claims processing with Kafka event pipelines, FHIR APIs and OAuth2-secured PHI access, supporting 50K+ daily claims.</div>
+<div class="project-tags"><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">Kafka</span><span class="tag">FHIR</span></div>
+<a class="project-link" href="https://github.com/bindukalam/cvs-claims-platform-case-study" target="_blank" rel="noopener">View on GitHub ↗</a></div>
 
-<section id="education">
-  <div class="container">
-    <div class="section-label">Education</div>
-    <div class="section-title">Academic background</div>
-    <div class="edu-card">
-      <div>
-        <div class="edu-degree">M.S. Computational Science</div>
-        <div class="edu-school">University at Buffalo, New York</div>
-        <div class="edu-courses">Machine Learning · Deep Learning · Big Data Analytics · Statistical Modeling · NLP · Cloud Computing · Distributed Systems · Computational Optimization</div>
-      </div>
-      <div class="edu-year">2023</div>
-    </div>
-  </div>
-</section>
+<div class="project-card"><span class="project-badge badge-academic">Academic</span>
+<div class="project-title">Chicago Crime Analytics</div>
+<div class="project-desc">Analyzed 1M+ crime records (2012–2016) and forecast crime trends with Facebook Prophet on a normalized SQLite schema.</div>
+<div class="project-tags"><span class="tag">Python</span><span class="tag">Prophet</span><span class="tag">SQLite</span></div>
+<a class="project-link" href="https://github.com/bindukalam/Chicago-Crime-Analysis-and-Forecast" target="_blank" rel="noopener">View on GitHub ↗</a></div>
 
-<section id="contact">
-  <div class="container">
-    <div class="section-label">Contact</div>
-    <div class="section-title">Get in touch</div>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <div class="contact-icon">✉</div>
-        <div>
-          <div class="contact-label">Email</div>
-          <div class="contact-val">kalambindu26@gmail.com</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">💼</div>
-        <div>
-          <div class="contact-label">LinkedIn</div>
-          <div class="contact-val"><a href="https://linkedin.com/in/bindukalam" target="_blank">linkedin.com/in/bindukalam</a></div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📱</div>
-        <div>
-          <div class="contact-label">Phone</div>
-          <div class="contact-val">716-463-1927</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">🐙</div>
-        <div>
-          <div class="contact-label">GitHub</div>
-          <div class="contact-val"><a href="https://github.com/bindukalam" target="_blank">github.com/bindukalam</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="project-card"><span class="project-badge badge-academic">Academic</span>
+<div class="project-title">Employee Churn Analysis</div>
+<div class="project-desc">Predicted attrition on 14,999 HR records using a Decision Tree (95.64% accuracy) with Boruta feature selection.</div>
+<div class="project-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Boruta</span></div>
+<a class="project-link" href="https://github.com/bindukalam/Employee-Churn-Analysis" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+</div></div></section>
 
-<footer>
-  <p>Built with GitHub Pages · Bindu Kalam © 2025</p>
-</footer>
+<section id="education"><div class="container">
+<div class="section-label">Education</div><div class="section-title">Academic background</div>
+<div class="edu-card"><div><div class="edu-degree">M.S. Data Science &amp; Engineering</div><div class="edu-school">University at Buffalo, SUNY — Buffalo, NY</div></div><div class="edu-year">Dec 2023</div></div>
+</div></section>
 
+<section id="contact"><div class="container">
+<div class="section-label">Contact</div><div class="section-title">Get in touch</div>
+<div class="contact-grid">
+<div class="contact-item"><div class="contact-icon">✉</div><div><div class="contact-label">Email</div><div class="contact-val"><a href="mailto:kalambindu26@gmail.com">kalambindu26@gmail.com</a></div></div></div>
+<div class="contact-item"><div class="contact-icon">💼</div><div><div class="contact-label">LinkedIn</div><div class="contact-val"><a href="https://linkedin.com/in/bindukalam" target="_blank" rel="noopener">linkedin.com/in/bindukalam</a></div></div></div>
+<div class="contact-item"><div class="contact-icon">🐙</div><div><div class="contact-label">GitHub</div><div class="contact-val"><a href="https://github.com/bindukalam" target="_blank" rel="noopener">github.com/bindukalam</a></div></div></div>
+</div></div></section>
+
+<footer><p>Built with GitHub Pages · Bindu Kalam © 2026</p></footer>
 </body>
 </html>
